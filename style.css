@@ -5,6 +5,16 @@ body
 	font-family: sans-serif;
 }
 /*---------- Heder CSS----------------*/
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+    background-size: 100%;
+  }
+  to {
+    background-position: 100% 0;
+    background-size: 115%;
+  }
+}
 #header
 {
 	height: 100vh;
@@ -12,6 +22,7 @@ body
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
+	animation: animatedBackground 10s linear infinite alternate;
 }
 
 .user-box
@@ -24,9 +35,9 @@ body
 
 .user-box img 
 {
-	border-radius: 50%;
+	border-radius: 100%;
 	width: 250px;
-	border: 2px solid #6caed5;
+	border: 2px solid white;
 }
 
 .user-box h1
@@ -71,17 +82,110 @@ body
 }
 
 /*------------About-------------*/
+.framework {
+	float: left;
+    width:  40px;
+    height: 1%;
+    object-fit: cover;
+    transition-duration: 0.2s;
+
+    /*border-radius: 100%;*/
+	/*border: 1px solid red;*/
+
+}
+
+.framework:hover {
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    z-index: 0;
+}
+
+/*.fram{
+
+  	color: red;
+    
+    background-size: contain;
+    animation: defilement1 30s linear infinite;
+}
+@keyframes defilement1{
+    0%{transform: translate(0,0);}
+    100%{transform: translate(-580px,200px);}
+}
+
+
+.fram:hover, {
+    animation-play-state: paused;
+}*/
+
+
+a, a > span {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  line-height: 24px;
+}
+a:before, a:after, a > span:before, a > span:after {
+  content: '';
+  position: absolute;
+  transition: transform .5s ease;
+}
+
+.nav-link {
+  display: inline-block;
+  overflow: hidden;
+}
+.nav-link:before, .nav-link:after {
+  right: 0;
+  bottom: 0;
+  background: #fff !important;
+}
+.nav-link:before {
+  width: 100%;
+  height: 2px;
+  transform: translateX(-100%);
+}
+.nav-link:after {
+  width: 2px;
+  height: 100%;
+  transform: translateY(100%);
+}
+.nav-link > span {
+  display: flex;
+  padding: 10px;
+}
+.nav-link > span:before, .nav-link > span:after {
+  left: 0;
+  top: 0;
+  background: #fff !important;
+}
+.nav-link > span:before {
+  width: 100%;
+  height: 2px;
+  transform: translateX(100%);
+}
+.nav-link > span:after {
+  width: 2px;
+  height: 100%;
+  transform: translateY(-100%);
+}
+.nav-link:hover:before, .nav-link:hover:after, .nav-link:hover > span:before, .nav-link:hover > span:after {
+  transform: translate(0, 0);
+}
+
 .about
 {
 	padding-top: 100px;
 	margin-bottom: -130px;
 
 }
-.profile-img
-{
-	height: 300px;
-	position: relative;
+
+.about img {
+	border-radius: 100%;
+	width: 250px;
+	border: 2px solid white;
 }
+
 
 .nav-bar
 {
@@ -319,6 +423,17 @@ body
 	margin-right: 10px;
 }
 
+.contact a
+{
+	text-decoration: none;
+	color: white;
+}
+
+.contact a:hover
+{
+	text-decoration: none;
+}
+
 .footer
 {
 	background: #000;
@@ -367,3 +482,56 @@ body
 }
 
 
+/********* bienvenue animation***********/
+.bienvenue {
+  font-weight: 700;
+  text-align: center;
+  font-size: 40px;
+  font-family: Hack, sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 5s linear infinite;
+  position: relative;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+/*zoom effect*/
+.zoom {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+/* displayon scroll*/
+
+.reveal {
+	opacity: 0;
+	transform: translateY(-30px);
+}
+
+.reveal-visible {
+	opacity: 1;
+	transform: translateY(0);
+	transition: 1.8s cubic-bezier(.5, 0, 0, 1);
+}
